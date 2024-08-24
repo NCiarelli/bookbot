@@ -2,7 +2,7 @@ import string
 
 def main():
 
-    print("hello world")
+    # print("hello world")
 
     # Get entire book as a string
     filepath = "books/frankenstein.txt"
@@ -19,8 +19,17 @@ def main():
 
     # Generate and print a book stats report
     sorted_letter_list = get_sorted_letter_list(char_count_dict)
-    print(sorted_letter_list)
-    
+    # print(sorted_letter_list)
+    print_book_stat_report(book_name, num_words, sorted_letter_list)
+
+def print_book_stat_report(book_name, word_count, sorted_letter_list):
+    print(f"--- Begin report of {book_name} ---")
+    print(f"{word_count} words found in the document\n")
+    for letter_dict in sorted_letter_list:
+        letter = letter_dict["letter"]
+        count = letter_dict["count"]
+        print(f"The '{letter}' letter was found {count} times")
+    print("--- End report ---")
 
 
 def get_sorted_letter_list(char_count_dict):
